@@ -1,4 +1,4 @@
-package turing;
+package oopBasics;
 
 public class Dog extends Animal {
 

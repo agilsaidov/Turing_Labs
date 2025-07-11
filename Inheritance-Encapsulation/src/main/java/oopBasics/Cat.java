@@ -1,4 +1,4 @@
-package turing;
+package oopBasics;
 
 public class Cat extends Animal {
 

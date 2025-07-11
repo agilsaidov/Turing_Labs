@@ -1,4 +1,4 @@
-package turing;
+package oopBasics;
 
 public class Human extends Animal {
     private Cat cat;
