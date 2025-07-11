@@ -1,4 +1,4 @@
-package oopBasics;
+package oopBasics.Animal;
 
 public class Dog extends Animal {
 

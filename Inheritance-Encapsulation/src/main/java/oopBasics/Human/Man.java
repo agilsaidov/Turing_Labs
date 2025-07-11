@@ -1,4 +1,7 @@
-package oopBasics;
+package oopBasics.Human;
+
+import oopBasics.Animal.Cat;
+import oopBasics.Animal.Dog;
 
 public class Man extends Human {
 

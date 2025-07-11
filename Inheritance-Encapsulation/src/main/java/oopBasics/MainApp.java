@@ -1,6 +1,11 @@
 package oopBasics;
 
 
+import oopBasics.Animal.Cat;
+import oopBasics.Animal.Dog;
+import oopBasics.Human.Man;
+import oopBasics.Human.Woman;
+
 public class MainApp {
     public static void main(String[] args) {
         Cat cat =new Cat("Felix",8,"Male","White",2);

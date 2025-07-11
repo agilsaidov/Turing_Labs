@@ -1,4 +1,8 @@
-package oopBasics;
+package oopBasics.Human;
+
+import oopBasics.Animal.Animal;
+import oopBasics.Animal.Cat;
+import oopBasics.Animal.Dog;
 
 public class Human extends Animal {
     private Cat cat;
