@@ -7,6 +7,8 @@ public class Animal {
     private String color;
     private int age;
 
+    public Animal() {}
+
     public Animal(String name, int weight, String gender, String color, int age) {
         this.name = name;
         this.weight = weight;
@@ -54,7 +56,9 @@ public class Animal {
     public void setAge(int age) {
         this.age = age;
     }
+    
 
+    
     @Override
     public String toString() {
         return "{" +
