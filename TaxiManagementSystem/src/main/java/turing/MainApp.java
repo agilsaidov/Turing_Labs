@@ -1,6 +1,6 @@
 package turing;
 
-public class Main {
+public class MainApp {
     public static void main(String[] args) {
         Vehicle v1 = new Taxi("Ford","Focus","10-BG-123",false,4,"Bolt");
         Vehicle v2 = new Bus("Mercedes","Tourismo","99-AA-999",true,40,false);
