@@ -8,6 +8,6 @@ public interface Notifiable {
         System.out.println("MediTrack Alert: " + message);
     }
 
-    static final String SYSTEM_NAME = "MediTrack";
+    String SYSTEM_NAME = "MediTrack";
 
 }
