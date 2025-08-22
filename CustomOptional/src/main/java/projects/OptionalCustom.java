@@ -14,7 +14,7 @@ public class OptionalCustom <T> {
 
     public T get() {
         if (value == null) {
-            throw new NoSuchElementException("No value present");
+            throw new NoSuchElementException();
         }
         return value;
     }
