@@ -8,13 +8,20 @@ import java.util.Optional;
 public class Main {
     public static void main(String[] args) {
         OptionalCustom<String> optional = new OptionalCustom<>(null);
+
+        try {
+            OptionalCustom<String> optional1 = OptionalCustom.of(null);
+        }catch (NullPointerException e) {
+            System.out.println(e.getMessage());
+        }
+
         System.out.println(optional.isEmpty());
         System.out.println(optional.isPresent());
 
         try {
             System.out.println(optional.get());
         }catch (NoSuchElementException e){
-            System.out.println("Vusal Muellime Salam");
+            System.out.println(e.getMessage());
         }
 
         System.out.println(optional.toString());

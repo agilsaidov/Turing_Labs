@@ -14,7 +14,7 @@ public class OptionalCustom <T> {
 
     public T get() {
         if (value == null) {
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("Vusal Muellime Salam");
         }
         return value;
     }
