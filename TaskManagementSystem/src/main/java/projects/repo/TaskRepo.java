@@ -25,7 +25,7 @@ public class TaskRepo<T extends Task> {
         tasks.add(task);
     }
 
-    public void deleteByID(Integer id) throws TaskNotFoundException {
+    public void deleteById(Integer id) throws TaskNotFoundException {
         boolean removed = tasks.removeIf(task -> task.getId().equals(id));
 
         if(!removed) throw new TaskNotFoundException("Task with " + id + " id not found");
@@ -41,7 +41,7 @@ public class TaskRepo<T extends Task> {
     }
 
     public List<T> findAll() {
-        return tasks;
+        return List.copyOf(tasks);
     }
 
     //HelperMethod
