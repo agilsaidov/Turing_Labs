@@ -26,6 +26,13 @@ public class CustomLinkedList <T>{
         }
     }
 
+    public void addFirst(T val) {
+        Node<T> newNode = new Node<>(val);
+        newNode.next = head;
+        head = newNode;
+        size++;
+    }
+
     public void printList(){
         Node<T> temp = head;
         System.out.print("[ ");
