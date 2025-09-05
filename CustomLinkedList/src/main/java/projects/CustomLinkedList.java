@@ -96,6 +96,8 @@ public class CustomLinkedList <T>{
         }
     }
 
+
+    //Method to remove the first node
     public void removeFirst(){
         if(size == 0) return;
         if(size == 1){
@@ -108,6 +110,8 @@ public class CustomLinkedList <T>{
         size--;
     }
 
+
+    //Method to remove the last node
     public void removeLast(){
         if(size == 0) return;
         if(size == 1){
@@ -116,6 +120,7 @@ public class CustomLinkedList <T>{
             size--;
             return;
         }
+
         Node<T> prev = head;
 
         while(prev.next != current){
@@ -123,6 +128,43 @@ public class CustomLinkedList <T>{
         }
         prev.next = null;
         current = prev;
+        size--;
+    }
+
+    public void removeLastOccurrence(T val){
+        if(size == 0) return;
+
+        Node<T> temp = head;
+        Node<T> previous = null;
+        Node<T> actual = null;
+        Node<T> previousTemp = null;
+
+        while(temp != null){
+            if(val.equals(temp.value)){
+                previous = previousTemp;
+                actual = temp;
+            }
+            previousTemp = temp;
+            temp = temp.next;
+
+        }
+        if(actual != null){
+            removeNode(previous,actual);
+        }
+    }
+
+    //Helper method
+    private void removeNode(Node<T> pre, Node<T> node){
+        if (pre == null) {
+            head = node.next;
+        } else {
+            pre.next = node.next;
+        }
+
+        if (node == current) {
+            current = null;
+        }
+
         size--;
     }
 
