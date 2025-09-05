@@ -26,4 +26,13 @@ public class CustomLinkedList <T>{
         }
     }
 
+    public void printList(){
+        Node<T> temp = head;
+        System.out.print("[ ");
+        while(temp != null){
+            System.out.print(temp.value + " ");
+            temp = temp.next;
+        }
+        System.out.print("]");
+    }
 }
