@@ -60,6 +60,34 @@ public class CustomLinkedList <T>{
         return current.value;
     }
 
+
+    //Method to remove a node
+    public void remove(T val){
+        if(size == 0) return;
+
+        Node<T> temp = head;
+        Node<T> previous = null;
+
+        if(head.value.equals(val)){
+            head = head.next;
+            size--;
+            return;
+        }
+
+        while(temp != null){
+            if(val.equals(temp.value)){
+                previous.next = temp.next;
+
+                if(temp.equals(current)) current = previous;
+                size--;
+                return;
+            }
+            previous = temp;
+            temp = temp.next;
+
+        }
+    }
+
     //Method to print all values
     public void printList(){
         Node<T> temp = head;
