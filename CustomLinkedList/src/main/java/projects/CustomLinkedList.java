@@ -33,6 +33,18 @@ public class CustomLinkedList <T>{
         size++;
     }
 
+    public T get(T val){
+        if(size == 0) return null;
+        Node<T> temp = head;
+
+        while(temp != null){
+            if(val.equals(temp.value)) return temp.value;
+            temp = temp.next;
+        }
+
+        return null;
+    }
+
     public void printList(){
         Node<T> temp = head;
         System.out.print("[ ");
