@@ -11,6 +11,7 @@ public class CustomLinkedList <T>{
         current = null;
     }
 
+
     //Method to add value to the end of List
     public void add(T val) {
         Node<T> newNode = new Node<>(val);
@@ -27,6 +28,7 @@ public class CustomLinkedList <T>{
         }
     }
 
+
     //Method to add value to the head
     public void addFirst(T val) {
         Node<T> newNode = new Node<>(val);
@@ -34,6 +36,7 @@ public class CustomLinkedList <T>{
         head = newNode;
         size++;
     }
+
 
     //Method to get value
     public T get(T val){
@@ -48,11 +51,13 @@ public class CustomLinkedList <T>{
         return null;
     }
 
+
     //Method to get first value
     public T getFirst(){
         if(size == 0) return null;
         return head.value;
     }
+
 
     //Method to get last value
     public T getLast(){
@@ -70,6 +75,9 @@ public class CustomLinkedList <T>{
 
         if(head.value.equals(val)){
             head = head.next;
+            if(size == 1){
+                current = null;
+            }
             size--;
             return;
         }
@@ -87,6 +95,19 @@ public class CustomLinkedList <T>{
 
         }
     }
+
+    public void removeFirst(){
+        if(size == 0) return;
+        if(size == 1){
+            current = null;
+            head = null;
+            size--;
+            return;
+        }
+        head = head.next;
+        size--;
+    }
+
 
     //Method to print all values
     public void printList(){
