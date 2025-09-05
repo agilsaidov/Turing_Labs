@@ -1,9 +1,9 @@
 package projects;
 
 public class CustomLinkedList <T>{
-     private Node head;
+     private Node<T> head;
      private int size;
-     private Node current;
+     private Node<T> current;
 
     public CustomLinkedList() {
         head = null;
@@ -11,6 +11,7 @@ public class CustomLinkedList <T>{
         current = null;
     }
 
+    //Method to add value to the end of List
     public void add(T val) {
         Node<T> newNode = new Node<>(val);
 
@@ -26,6 +27,7 @@ public class CustomLinkedList <T>{
         }
     }
 
+    //Method to add value to the head
     public void addFirst(T val) {
         Node<T> newNode = new Node<>(val);
         newNode.next = head;
@@ -33,6 +35,7 @@ public class CustomLinkedList <T>{
         size++;
     }
 
+    //Method to get value
     public T get(T val){
         if(size == 0) return null;
         Node<T> temp = head;
@@ -45,6 +48,19 @@ public class CustomLinkedList <T>{
         return null;
     }
 
+    //Method to get first value
+    public T getFirst(){
+        if(size == 0) return null;
+        return head.value;
+    }
+
+    //Method to get last value
+    public T getLast(){
+        if(size == 0) return null;
+        return current.value;
+    }
+
+    //Method to print all values
     public void printList(){
         Node<T> temp = head;
         System.out.print("[ ");
