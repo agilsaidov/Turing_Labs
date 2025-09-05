@@ -131,6 +131,8 @@ public class CustomLinkedList <T>{
         size--;
     }
 
+
+    //Method to remove the last occurred node
     public void removeLastOccurrence(T val){
         if(size == 0) return;
 
@@ -162,10 +164,22 @@ public class CustomLinkedList <T>{
         }
 
         if (node == current) {
-            current = null;
+            current = pre;
         }
 
         size--;
+    }
+
+
+    //Return size of List
+    public int size(){
+        return size;
+    }
+
+
+    //Check if List is empty
+    public boolean isEmpty(){
+        return size == 0;
     }
 
 
