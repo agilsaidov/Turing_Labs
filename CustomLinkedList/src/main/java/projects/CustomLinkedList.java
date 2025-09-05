@@ -108,6 +108,24 @@ public class CustomLinkedList <T>{
         size--;
     }
 
+    public void removeLast(){
+        if(size == 0) return;
+        if(size == 1){
+            current = null;
+            head = null;
+            size--;
+            return;
+        }
+        Node<T> prev = head;
+
+        while(prev.next != current){
+            prev = prev.next;
+        }
+        prev.next = null;
+        current = prev;
+        size--;
+    }
+
 
     //Method to print all values
     public void printList(){
