@@ -47,7 +47,7 @@ public class CustomLinkedList <T>{
 
         Node<T> temp = head;
 
-        for (int i = 0; i < index; i++) {
+        for (int i = 0; i < index-1; i++) {
             temp = temp.next;
         }
 
@@ -63,6 +63,7 @@ public class CustomLinkedList <T>{
         Node<T> newNode = new Node<>(val);
         newNode.next = head;
         head = newNode;
+        if(size == 0) current = newNode;
         size++;
     }
 
