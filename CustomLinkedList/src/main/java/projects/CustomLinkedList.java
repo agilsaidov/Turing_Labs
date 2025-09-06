@@ -29,6 +29,40 @@ public class CustomLinkedList <T>{
     }
 
 
+    //Index based add method
+    public void add(int index, T val) {
+        if(index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        Node<T> newNode = new Node<>(val);
+
+        if(index == 0){
+            newNode.next = head;
+            head = newNode;
+            if(size == 0) current = newNode;
+            size++;
+            return;
+        }
+
+        if(index == size){
+            add(val);
+            return;
+        }
+
+        Node<T> temp = head;
+
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+
+        newNode.next = temp.next;
+        temp.next = newNode;
+        size++;
+
+    }
+
+
     //Method to add value to the head
     public void addFirst(T val) {
         Node<T> newNode = new Node<>(val);
