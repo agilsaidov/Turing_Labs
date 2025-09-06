@@ -103,6 +103,36 @@ public class CustomLinkedList <T>{
     }
 
 
+    //Method to find index of element
+    public int indexOf(T val){
+        if(size == 0) return -1;
+        Node<T> temp = head;
+
+        for(int i = 0; i < size; i++){
+            if(val.equals(temp.value)) return i;
+            temp = temp.next;
+        }
+
+        return -1;
+    }
+
+
+    //Method to find index of the last occurrence of given element
+    public int lastIndexOf(T val){
+        if(size == 0) return -1;
+        Node<T> temp = head;
+        int result = -1;
+
+        for(int i =0 ; i<size; i++){
+            if(val.equals(temp.value)){
+                result = i;
+            }
+            temp = temp.next;
+        }
+        return result;
+    }
+
+
     //Method to update elements
     public void set(int index, T val) {
         if(size ==0) throw new IndexOutOfBoundsException();
@@ -222,12 +252,14 @@ public class CustomLinkedList <T>{
     //Method to print all values
     public void printList(){
         Node<T> temp = head;
-        System.out.print("[ ");
+        System.out.print("[");
         while(temp != null){
-            System.out.print(temp.value + " ");
+            if(temp.next != null) {
+                System.out.print(temp.value + ", ");
+
+            }else System.out.print(temp.value+"]\n");
             temp = temp.next;
         }
-        System.out.print("]");
     }
 
 
