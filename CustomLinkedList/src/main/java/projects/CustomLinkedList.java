@@ -31,17 +31,12 @@ public class CustomLinkedList <T>{
 
     //Index based add method
     public void add(int index, T val) {
-        if(index < 0 || index > size) {
-            throw new IndexOutOfBoundsException();
-        }
+        if(index < 0 || index > size) {throw new IndexOutOfBoundsException();}
 
         Node<T> newNode = new Node<>(val);
 
         if(index == 0){
-            newNode.next = head;
-            head = newNode;
-            if(size == 0) current = newNode;
-            size++;
+            addFirst(val);
             return;
         }
 
@@ -88,14 +83,8 @@ public class CustomLinkedList <T>{
 
     //Index based get method
     public T get(int index){
-        if(size == 0 || index<0 || index>=size) throw new IndexOutOfBoundsException();
-
-        Node<T> temp = head;
-
-        for(int i = 0; i < index; i++){
-            temp = temp.next;
-        }
-        return temp.value;
+        if(size == 0) throw new IndexOutOfBoundsException();
+        return getNodeAt(index).value;
     }
 
 
@@ -115,14 +104,8 @@ public class CustomLinkedList <T>{
 
     //Method to update elements
     public void set(int index, T val) {
-        if(size ==0 || index < 0 || index >= size) throw new IndexOutOfBoundsException();
-
-        Node<T> temp = head;
-        for (int i = 0; i < index; i++) {
-            temp = temp.next;
-        }
-
-        temp.value = val;
+        if(size ==0) throw new IndexOutOfBoundsException();
+        getNodeAt(index).value = val;
     }
 
 
@@ -160,36 +143,24 @@ public class CustomLinkedList <T>{
 
     //Index based remove
     public void remove(int index){
-        if(size == 0 || index<0 || index>=size) return;
+        if(size == 0) throw new IndexOutOfBoundsException();
 
         if(index == 0){
             removeFirst();
             return;
         }
 
-        Node<T> temp = head;
-        Node<T> previous = null;
+        Node<T> previous = getNodeAt(index-1);
+        Node<T> nodeToRemove = previous.next;
 
-        for(int i = 0; i < index; i++){
-            previous = temp;
-            temp = temp.next;
-        }
 
-        previous.next = temp.next;
-        if(temp.equals(current)) current = previous;
-        size--;
+        removeNode(previous,nodeToRemove);
     }
 
 
     //Method to remove the first node
     public void removeFirst(){
-        if(size == 0) return;
-        if(size == 1){
-            current = null;
-            head = null;
-            size--;
-            return;
-        }
+        if(handleEmptyAndSingleRemoval()) return;
         head = head.next;
         size--;
     }
@@ -197,13 +168,7 @@ public class CustomLinkedList <T>{
 
     //Method to remove the last node
     public void removeLast(){
-        if(size == 0) return;
-        if(size == 1){
-            current = null;
-            head = null;
-            size--;
-            return;
-        }
+        if(handleEmptyAndSingleRemoval()) return;
 
         Node<T> prev = head;
 
@@ -239,20 +204,6 @@ public class CustomLinkedList <T>{
         }
     }
 
-    //Helper method
-    private void removeNode(Node<T> pre, Node<T> node){
-        if (pre == null) {
-            head = node.next;
-        } else {
-            pre.next = node.next;
-        }
-
-        if (node == current) {
-            current = pre;
-        }
-
-        size--;
-    }
 
 
     //Return size of List
@@ -276,5 +227,48 @@ public class CustomLinkedList <T>{
             temp = temp.next;
         }
         System.out.print("]");
+    }
+
+
+
+    //Helper method
+    private void removeNode(Node<T> pre, Node<T> node){
+        if (pre == null) {
+            head = node.next;
+        } else {
+            pre.next = node.next;
+        }
+
+        if (node == current) {
+            current = pre;
+        }
+
+        size--;
+    }
+
+    //Helper Method
+    private Node<T> getNodeAt(int index){
+        if(index < 0 || index >= size) throw new IndexOutOfBoundsException();
+
+        Node<T> temp = head;
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+
+        return temp;
+    }
+
+    //Helper Method
+    private boolean handleEmptyAndSingleRemoval() {
+        if(size == 0) return true;
+
+        if(size == 1) {
+            head = null;
+            current = null;
+            size--;
+            return true;
+        }
+
+        return false;
     }
 }
