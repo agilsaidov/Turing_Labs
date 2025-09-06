@@ -88,7 +88,8 @@ public class CustomLinkedList <T>{
 
     //Index based get method
     public T get(int index){
-        if(size == 0 || index<0 || index>=size) return null;
+        if(size == 0 || index<0 || index>=size) throw new IndexOutOfBoundsException();
+
         Node<T> temp = head;
 
         for(int i = 0; i < index; i++){
@@ -110,6 +111,20 @@ public class CustomLinkedList <T>{
         if(size == 0) return null;
         return current.value;
     }
+
+
+    //Method to update elements
+    public void set(int index, T val) {
+        if(size ==0 || index < 0 || index >= size) throw new IndexOutOfBoundsException();
+
+        Node<T> temp = head;
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+
+        temp.value = val;
+    }
+
 
 
     //Method to remove a node
