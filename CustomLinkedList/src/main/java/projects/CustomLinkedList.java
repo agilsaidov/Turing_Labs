@@ -1,5 +1,7 @@
 package projects;
 
+import java.util.List;
+
 public class CustomLinkedList <T>{
      private Node<T> head;
      private int size;
@@ -9,6 +11,20 @@ public class CustomLinkedList <T>{
         head = null;
         size = 0;
         current = null;
+    }
+
+    public CustomLinkedList(List<T> list) {
+        head = null;
+        size = 0;
+        current = null;
+        listReader(list);
+    }
+
+    public CustomLinkedList(T[] array) {
+        head = null;
+        size = 0;
+        current = null;
+        arrayReader(array);
     }
 
 
@@ -303,5 +319,22 @@ public class CustomLinkedList <T>{
         }
 
         return false;
+    }
+
+
+    private void listReader(List<T> list){
+        if(list.isEmpty()) return;
+
+        for(T item : list){
+            add(item);
+        }
+    }
+
+    private void arrayReader(T[] array){
+        if(array.length == 0) return;
+
+        for(T item : array){
+            add(item);
+        }
     }
 }
