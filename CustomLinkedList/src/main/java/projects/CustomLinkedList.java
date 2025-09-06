@@ -52,6 +52,18 @@ public class CustomLinkedList <T>{
     }
 
 
+    //Index based get method
+    public T get(int index){
+        if(size == 0 || index<0 || index>=size) return null;
+        Node<T> temp = head;
+
+        for(int i = 0; i < index; i++){
+            temp = temp.next;
+        }
+        return temp.value;
+    }
+
+
     //Method to get first value
     public T getFirst(){
         if(size == 0) return null;
@@ -94,6 +106,29 @@ public class CustomLinkedList <T>{
             temp = temp.next;
 
         }
+    }
+
+
+    //Index based remove
+    public void remove(int index){
+        if(size == 0 || index<0 || index>=size) return;
+
+        if(index == 0){
+            removeFirst();
+            return;
+        }
+
+        Node<T> temp = head;
+        Node<T> previous = null;
+
+        for(int i = 0; i < index; i++){
+            previous = temp;
+            temp = temp.next;
+        }
+
+        previous.next = temp.next;
+        if(temp.equals(current)) current = previous;
+        size--;
     }
 
 
