@@ -117,4 +117,13 @@ public class Solutions {
         return false;
     }
 
+    // LeetCode 125. Valid Palindrome
+    public boolean isPalindrome(String s) {
+
+        String cleaned = s.replaceAll("[^A-Za-z0-9]", "").toLowerCase();
+        StringBuilder sb = new StringBuilder(cleaned);
+        return cleaned.equals(sb.reverse().toString());
+
+    }
+
 }
