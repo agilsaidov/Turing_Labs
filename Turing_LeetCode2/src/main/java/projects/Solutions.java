@@ -2,6 +2,7 @@ package projects;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Solutions {
@@ -97,6 +98,23 @@ public class Solutions {
             }
         }
         return maxProfit;
+    }
+
+    // LeetCode 217. Contains Duplicate
+    public boolean containsDuplicate(int[] nums) {
+        List<Integer> list = new ArrayList<>();
+        for(int a : nums){
+            list.add(a);
+        }
+
+        Collections.sort(list);
+        for(int i = 1 ; i< list.size(); i++){
+            if(list.get(i).equals(list.get(i-1))){
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }
