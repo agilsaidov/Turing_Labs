@@ -40,4 +40,21 @@ public class Solutions {
         return dummy.next;
 
     }
+
+    //LeetCode 141.LinkedListCycle
+    public boolean hasCycle(ListNode head) {
+        if(head == null || head.next == null) return false;
+
+        ListNode single = head;
+        ListNode doublee = head.next;
+
+        while(single != doublee){
+            if(doublee == null || doublee.next == null) return false;
+
+            single = single.next;
+            doublee = doublee.next.next;
+        }
+        return true;
+    }
+
 }
