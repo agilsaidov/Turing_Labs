@@ -1,6 +1,9 @@
 package projects;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Solutions {
 
     //LeetCode 206. Reverse LL
@@ -55,6 +58,30 @@ public class Solutions {
             doublee = doublee.next.next;
         }
         return true;
+    }
+
+    // LeetCode 1. Two Sum
+    public int[] twoSum(int[] nums, int target) {
+        List<Integer> list = new ArrayList<>();
+        for(int num : nums){
+            list.add(num);
+        }
+
+        int[] indices = new int[2];
+        for(int i = 0; i<nums.length; i++){
+            int num = target - nums[i];
+
+            if(list.contains(num)){
+                int j = list.indexOf(num);
+
+                if(j != i){
+                    indices[0] = i;
+                    indices[1] = j;
+                }
+            }
+
+        }
+        return indices;
     }
 
 }
