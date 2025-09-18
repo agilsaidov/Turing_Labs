@@ -205,4 +205,19 @@ public class Solutions {
         return dummy.next;
     }
 
+
+    //LeetCode 53. Maximum Subarray
+    public int maxSubArray(int[] nums) {
+        int max_current = nums[0];
+        int max_global = nums[0];
+        for (int i = 1; i<nums.length; i++){
+            max_current = (Math.max(nums[i],max_current +nums[i]));
+            if(max_global < max_current){
+                max_global = max_current;
+            }
+        }
+        return max_global;
+
+    }
+
 }
