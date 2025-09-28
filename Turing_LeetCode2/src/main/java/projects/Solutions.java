@@ -283,4 +283,26 @@ public class Solutions {
         return number;
     }
 
+
+    //58. Length of Last Word
+    public static int lengthOfLastWord(String s) {
+        ArrayList<Character> list = new ArrayList<>();
+        int length = 0;
+        boolean counting = false;
+
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) == ' ') {
+                if (counting) {
+                    break;
+                }
+            } else {
+                list.add(s.charAt(i));
+                counting = true;
+                length++;
+            }
+        }
+
+        return length;
+    }
+
 }
