@@ -319,25 +319,41 @@ public class Solutions {
 
     //49. Group Anagrams
     public List<List<String>> groupAnagrams(String[] strs) {
-        if(strs == null || strs.length ==0){
+        if (strs == null || strs.length == 0) {
             return new ArrayList<>();
         }
-        Map<String,List<String>> map = new HashMap<>();
+        Map<String, List<String>> map = new HashMap<>();
 
-        for(String a : strs){
+        for (String a : strs) {
             char[] charArray = a.toCharArray();
             Arrays.sort(charArray);
 
             String key = new String(charArray);
-            if(!map.containsKey(key)){
+            if (!map.containsKey(key)) {
                 map.put(key, new ArrayList<>());
             }
             map.get(key).add(a);
         }
         ArrayList<List<String>> finalList = new ArrayList<>(map.values());
         return finalList;
+    }
 
 
+    //136. Single Number
+    public int singleNumber(int[] nums) {
+
+        for(int i =0;i <nums.length;i++){
+            int unique=0;
+            for(int j = 0 ;j<nums.length; j++){
+                if(nums[i] == nums[j] && i != j){
+                    unique++;
+                }
+            }
+            if(unique ==0){
+                return nums[i];
+            }
+        }
+        return -1;
     }
 
 }
