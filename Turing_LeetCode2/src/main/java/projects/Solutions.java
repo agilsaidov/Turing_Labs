@@ -249,4 +249,38 @@ public class Solutions {
         return dummy.next;
     }
 
+
+    //Leetcode 42. Trapping Rain Water
+    public int trap(int[] height) {
+        if (height == null || height.length == 0) {
+            return 0;
+        }
+        int left = 0;
+        int right = height.length - 1;
+        int Maximuml = 0;
+        int Maximumr = 0;
+        int number = 0;
+
+        while (left < right) {
+            if (height[left] < height[right]) {
+
+                if (height[left] >= Maximuml) {
+                    Maximuml = height[left];
+                } else {
+                    number = number+(Maximuml - height[left]);
+                }
+                left++;
+            } else {
+                if (height[right] >= Maximumr) {
+                    Maximumr = height[right];
+                } else {
+                    number = number+ (Maximumr - height[right]);
+                }
+                right--;
+            }
+        }
+
+        return number;
+    }
+
 }
