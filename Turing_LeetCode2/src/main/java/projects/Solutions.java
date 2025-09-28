@@ -1,9 +1,7 @@
 package projects;
 
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Solutions {
 
@@ -316,6 +314,30 @@ public class Solutions {
             }
         }
         return k;
+    }
+
+
+    //49. Group Anagrams
+    public List<List<String>> groupAnagrams(String[] strs) {
+        if(strs == null || strs.length ==0){
+            return new ArrayList<>();
+        }
+        Map<String,List<String>> map = new HashMap<>();
+
+        for(String a : strs){
+            char[] charArray = a.toCharArray();
+            Arrays.sort(charArray);
+
+            String key = new String(charArray);
+            if(!map.containsKey(key)){
+                map.put(key, new ArrayList<>());
+            }
+            map.get(key).add(a);
+        }
+        ArrayList<List<String>> finalList = new ArrayList<>(map.values());
+        return finalList;
+
+
     }
 
 }
