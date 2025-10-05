@@ -14,6 +14,13 @@ public class CustomArrayList<T> {
         array[size++] = t;
     }
 
+    public T get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index);
+        }
+        return array[index];
+    }
+
 
 
 
