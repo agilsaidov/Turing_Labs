@@ -62,6 +62,15 @@ public class CustomArrayList<T> {
     }
 
 
+    public void removeFirst() {
+        remove(0);
+    }
+
+    public void removeLast() {
+        remove(size - 1);
+    }
+
+
     public int size(){
         return size;
     }
