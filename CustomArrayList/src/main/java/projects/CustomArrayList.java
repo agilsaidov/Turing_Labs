@@ -41,6 +41,15 @@ public class CustomArrayList<T> {
         return array[index];
     }
 
+    public T getFirst() {
+        return array[0];
+    }
+
+    public T getLast() {
+        return array[size - 1];
+    }
+
+
     public void remove(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index: " + index);
@@ -52,11 +61,32 @@ public class CustomArrayList<T> {
         size--;
     }
 
+
     public int size(){
         return size;
     }
 
 
+    public int indexOf(T t) {
+        for(int i = 0; i < size; i++) {
+            if(array[i].equals(t)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int lastIndexOf(T t) {
+        for(int i = size - 1; i >= 0; i--) {
+            if(array[i].equals(t)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+
+    //Helper Methods
     private void sizeChecker(){
         if(size == array.length){
             @SuppressWarnings("unchecked")
