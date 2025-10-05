@@ -1,5 +1,7 @@
 package projects;
 
+import java.util.Objects;
+
 public class CustomArrayList<T> {
     private int size;
     private T[] array;
@@ -20,7 +22,9 @@ public class CustomArrayList<T> {
 
 
     public void add(int index, T element) {
-        checkIndex(index);
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
+        }
         indexShift(index);
         array[index] = element;
         size++;
@@ -71,8 +75,9 @@ public class CustomArrayList<T> {
 
     public void removeAll(T element){
         for(int i = 0; i < size; i++) {
-            if(array[i].equals(element)) {
+            if(Objects.equals(array[i],element)) {
                 remove(i);
+                i--;
             }
         }
     }
@@ -83,7 +88,7 @@ public class CustomArrayList<T> {
     //---------------INDEXOF METHODS---------------
     public int indexOf(T element) {
         for(int i = 0; i < size; i++) {
-            if(array[i].equals(element)) {
+            if(Objects.equals(array[i],element)) {
                 return i;
             }
         }
@@ -92,7 +97,7 @@ public class CustomArrayList<T> {
 
     public int lastIndexOf(T element) {
         for(int i = size - 1; i >= 0; i--) {
-            if(array[i].equals(element)) {
+            if(Objects.equals(array[i],element)) {
                 return i;
             }
         }
