@@ -5,14 +5,17 @@ public class CustomArrayList<T> {
     @SuppressWarnings("unchecked")
     T[] array = (T[]) new Object[20];
 
+
     public CustomArrayList() {
         this.size = 0;
     }
+
 
     public void add(T t) {
         sizeChecker();
         array[size++] = t;
     }
+
 
     public void add(int index, T t) {
         if(index < 0 || index > size) {
@@ -23,11 +26,13 @@ public class CustomArrayList<T> {
         size++;
     }
 
+
     public void addFirst(T t) {
         indexShift(0);
         array[0] = t;
         size++;
     }
+
 
     public T get(int index) {
         if (index < 0 || index >= size) {
@@ -36,13 +41,20 @@ public class CustomArrayList<T> {
         return array[index];
     }
 
+    public void remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index);
+        }
+        array[index] = null;
+        for(int i = index + 1; i < size; i++) {
+            array[i - 1] = array[i];
+        }
+        size--;
+    }
+
     public int size(){
         return size;
     }
-
-
-
-
 
 
     private void sizeChecker(){
