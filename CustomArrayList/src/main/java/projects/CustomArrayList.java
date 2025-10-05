@@ -61,13 +61,20 @@ public class CustomArrayList<T> {
         size--;
     }
 
-
     public void removeFirst() {
         remove(0);
     }
 
     public void removeLast() {
         remove(size - 1);
+    }
+
+    public void removeAll(T element){
+        for(int i = 0; i < size; i++) {
+            if(array[i].equals(element)) {
+                remove(i);
+            }
+        }
     }
 
 
@@ -94,6 +101,18 @@ public class CustomArrayList<T> {
         return -1;
     }
 
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder("[");
+        for(int i = 0; i < size; i++) {
+            sb.append(array[i]);
+            if(i<size-1) {
+                sb.append(", ");
+            }
+        }
+        sb.append("]");
+        return sb.toString();
+    }
 
     //Helper Methods
     private void sizeChecker(){
