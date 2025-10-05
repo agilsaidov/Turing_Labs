@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7aa8563-06c0-47b9-a38f-069b4fb11338" name="Changes" comment="" />
+    <list default="true" id="d7aa8563-06c0-47b9-a38f-069b4fb11338" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../CustomArrayList/src/main/java/projects/CustomArrayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,6 +43,10 @@
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Agil Saidov/OneDrive/Desktop/MyProjects/TuringLabsModified/TuringLabs/HappyFamily",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/Agil Saidov/OneDrive/Desktop/MyProjects/TuringLabsModified/TuringLabs/HappyFamily/src/main/java/projects/Main.java",
     "vue.rearranger.settings.migration": "true"
@@ -64,6 +71,7 @@
       <workItem from="1754392587457" duration="108000" />
       <workItem from="1754611246341" duration="9000" />
       <workItem from="1759401834982" duration="20000" />
+      <workItem from="1759665613408" duration="661000" />
     </task>
     <servers />
   </component>
