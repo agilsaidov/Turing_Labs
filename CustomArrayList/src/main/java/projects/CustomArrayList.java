@@ -2,42 +2,42 @@ package projects;
 
 public class CustomArrayList<T> {
     private int size;
+    private T[] array;
+
+
     @SuppressWarnings("unchecked")
-    T[] array = (T[]) new Object[20];
-
-
     public CustomArrayList() {
         this.size = 0;
+        this.array = (T[]) new Object[20];
     }
 
 
-    public void add(T t) {
+    //---------------ADD METHODS---------------
+    public void add(T element) {
         sizeChecker();
-        array[size++] = t;
+        array[size++] = element;
     }
 
 
-    public void add(int index, T t) {
-        if(index < 0 || index > size) {
-            throw new IndexOutOfBoundsException("Index: " + index);
-        }
+    public void add(int index, T element) {
+        checkIndex(index);
         indexShift(index);
-        array[index] = t;
+        array[index] = element;
         size++;
     }
 
 
-    public void addFirst(T t) {
+    public void addFirst(T element) {
         indexShift(0);
-        array[0] = t;
+        array[0] = element;
         size++;
     }
+    //---------------------------------------------
 
 
+    //---------------GET METHODS---------------
     public T get(int index) {
-        if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Index: " + index);
-        }
+        checkIndex(index);
         return array[index];
     }
 
@@ -48,12 +48,12 @@ public class CustomArrayList<T> {
     public T getLast() {
         return array[size - 1];
     }
+    //---------------------------------------------
 
 
+    //---------------REMOVE METHODS---------------
     public void remove(int index) {
-        if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Index: " + index);
-        }
+        checkIndex(index);
         array[index] = null;
         for(int i = index + 1; i < size; i++) {
             array[i - 1] = array[i];
@@ -76,29 +76,38 @@ public class CustomArrayList<T> {
             }
         }
     }
+    //--------------------------------------------
+
+
+
+    //---------------INDEXOF METHODS---------------
+    public int indexOf(T element) {
+        for(int i = 0; i < size; i++) {
+            if(array[i].equals(element)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int lastIndexOf(T element) {
+        for(int i = size - 1; i >= 0; i--) {
+            if(array[i].equals(element)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    //--------------------------------------------
 
 
     public int size(){
         return size;
     }
 
-
-    public int indexOf(T t) {
-        for(int i = 0; i < size; i++) {
-            if(array[i].equals(t)) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    public int lastIndexOf(T t) {
-        for(int i = size - 1; i >= 0; i--) {
-            if(array[i].equals(t)) {
-                return i;
-            }
-        }
-        return -1;
+    public boolean isEmpty(){
+        return size == 0;
     }
 
     @Override
@@ -114,7 +123,8 @@ public class CustomArrayList<T> {
         return sb.toString();
     }
 
-    //Helper Methods
+
+    //--------HELPER METHODS---------
     private void sizeChecker(){
         if(size == array.length){
             @SuppressWarnings("unchecked")
@@ -128,6 +138,12 @@ public class CustomArrayList<T> {
         sizeChecker();
         for (int i = size; i > index; i--) {
             array[i] = array[i - 1];
+        }
+    }
+
+    private void checkIndex(int index){
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index " + index + " out of bounds for length " + size);
         }
     }
 
